@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> KAI CHAIN</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <span>KAI CHAIN <img src="ytoken.jpg" alt="YToken" class="logo-image"></span>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" onclick="toggleTheme()">🌙</button>
+                <button class="icon-btn" onclick="window.open('index1.html', '_blank')" title="Open KAI Chain DeFi Platform">≡</button>
+                
+                <button class="icon-btn">🔔</button>
+                
+            </div>
+        </div>
+
+
+            <div class="main-content">
+                <!-- Profile Card -->
+                <div class="left-section">
+                    <div class="profile-card">
+                        <div class="qr-code">
+                            <div class="qr-pattern"></div>
+                        </div>
+                        <div class="profile-name">AUSTIN NAMUYE</div>
+                        <div class="profile-handle">@drekahshisamah</div>
+                        <div class="join-date">Joined March 3, 2025</div>
+                        <div class="referral-badge">🏆 Referral</div>
+                        <div class="card-actions">
+                            <button class="action-btn" onclick="copyLink()">📋 Copy Link</button>
+                            <button class="action-btn" onclick="shareProfile()">📤 Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wallet Overview -->
+                <div class="right-section">
+                    <div class="wallet-overview">
+                        <div class="wallet-header">
+                            <h2 class="wallet-title">Wallet Overview</h2>
+                            <button class="icon-btn" onclick="connectWallet()">🔗</button>
+                        </div>
+                        <div style="color: rgba(255, 255, 255, 0.7); margin-bottom: 20px;">
+                            Manage your tokens
+                        </div>
+                        <!-- RPC Connection Section -->
+                        <div class="token-section" style="border: 1px solid rgba(255, 165, 0, 0.3);">
+                            <div class="token-label">RPC Connection Status</div>
+                            <div id="rpc-status" class="token-amount" style="color: #ff6b35;">Disconnected</div>
+                            <button class="action-btn" onclick="connectToRPC()" id="rpc-connect-btn" style="margin-top: 10px; width: 100%;">
+                                🌐 Connect to Core Testnet 
+                            </button>
+                        </div>
+                        <div class="token-board">
+                            <h2>KAI CHAIN Token Supply</h2>
+                            <ul>
+                                <li><img src="ytoken.jpg" alt="YToken"> YToken: 2,100,000,000</li>
+                                <li><img src="ybob.jpg" alt="YBOB"> YBOB: infinite</li>
+                                <li><img src="YGold.jpg" alt="YGOLDBOND"> YGOLDBOND: 8,400,000,000</li>
+                                <li><img src="KAIcents.jpg" alt="KAI CENTS"> KAI CENTS: 1,000,000,000</li>
+                                <li><img src="gami.jpg" alt="GAMI"> GAMI: 10,000,000,000</li>
+                            </ul>
+                        </div>
+                        </div>
+                        <div class="token-section">
+                            <div class="token-label">Balance</div>
+                            <div class="balance-amount" id="wallet-balance">22.03 tCORE</div>
+                            <div class="balance-usd">≈ $22.03 tCORE</div>
+                            <button class="icon-btn" style="float: right; margin-top: -40px;" onclick="refreshBalance()">🔄</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wallet Section -->
+        <div id="wallet-section" class="section">
+            <div class="wallet-overview">
+                <div class="wallet-header">
+                    <h2 class="wallet-title">Your Wallet</h2>
+                    <button class="icon-btn" onclick="connectWallet()">🔗</button>
+                </div>
+                
+                <div style="color: rgba(255, 255, 255, 0.7); margin-bottom: 20px;">
+                    Connect your wallet to view balances and interact with Core Testnet
+                </div>
+
+                <div class="token-section">
+                    <div class="token-label">Wallet Status</div>
+                    <div class="token-amount" id="wallet-status">Not Connected</div>
+                    <button class="action-btn" onclick="connectWallet()" style="margin-top: 10px; width: 100%;">
+                        🔗 Connect Wallet
+                    </button>
+                </div>
+
+                <div class="token-section">
+                    <div class="token-label">Balance</div>
+                    <div class="balance-amount" id="wallet-balance">22.03 CORE</div>
+                    <div class="balance-usd">≈ $22.03 CORE</div>
+                    <button class="icon-btn" style="float: right; margin-top: -40px;" onclick="refreshBalance()">🔄</button>
+                </div>
+
+                <div class="token-section">
+                    <div class="token-board">
+                        <h2>KAI CHAIN Tokens</h2>
+                        <ul>
+                            <li><img src="ytoken.jpg" alt="YToken"> YToken: 2,100,000,000</li>
+                            <li><img src="Ybob.jpg" alt="YBOB"> YBOB: INFINITE</li>
+                            <li><img src="YGold.jpg" alt="YGOLDBOND"> YGOLDBOND: 8,400,000,000</li>
+                            <li><img src="KAIcents.jpg" alt="KAI CENTS"> KAI CENTS: 1,000,000,000</li>
+                            <li><img src="GAMI.jpg" alt="GAMI"> GAMI: 10,000,000,000</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Swap Section -->
+        <div id="swap-section" class="section">
+            <div class="wallet-overview">
+                <div class="wallet-header">
+                    <h2 class="wallet-title">Token Swap</h2>
+                    <button class="icon-btn">↕️</button>
+                </div>
+                
+                <div style="color: rgba(255, 255, 255, 0.7); margin-bottom: 20px;">
+                    Swap tokens instantly on Core Testnet
+                </div>
+
+                <div class="token-section">
+                    <div class="token-label">From Token</div>
+                    <select class="swap-input" style="width: 100%; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;">
+                        <option>CORE</option>
+                        <option>YToken</option>
+                        <option>YBOB</option>
+                        <option>YGOLDBOND</option>
+                        <option>KAI CENTS</option>
+                        <option>GAMI</option>
+                    </select>
+                </div>
+
+                <div class="token-section">
+                    <div class="token-label">Amount</div>
+                    <input type="number" placeholder="0.00" style="width: 100%; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;">
+                </div>
+
+                <div class="token-section">
+                    <div class="token-label">To Token</div>
+                    <select class="swap-input" style="width: 100%; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white;">
+                        <option>YToken</option>
+                        <option>CORE</option>
+                        <option>YBOB</option>
+                        <option>YGOLDBOND</option>
+                        <option>KAI CENTS</option>
+                        <option>GAMI</option>
+                    </select>
+                </div>
+
+                <button class="action-btn" onclick="performSwap()" style="margin-top: 15px; width: 100%; background: linear-gradient(135deg, #ff6b35, #f7931e);">
+                    ↕️ Swap Tokens
+                </button>
+            </div>
+        </div>
+
+        <!-- RPC Section -->
+        <div id="rpc-section" class="section">
+            <div class="wallet-overview">
+                <div class="wallet-header">
+                    <h2 class="wallet-title">RPC Connection</h2>
+                    <button class="icon-btn">🌐</button>
+                </div>
+                
+                <div style="color: rgba(255, 255, 255, 0.7); margin-bottom: 20px;">
+                    Connect directly to Core Testnet RPC relay
+                </div>
+
+                <div class="token-section">
+                    <div class="token-label">RPC Connection Status</div>
+                    <div id="rpc-status" class="token-amount" style="color: #ff6b35;">Disconnected</div>
+                    <button class="action-btn" onclick="connectToRPC()" id="rpc-connect-btn" style="margin-top: 10px; width: 100%;">
+                        🌐 Connect to Core Testnet RPC
+                    </button>
+                </div>
+
+                <div class="token-section">
+                    <div class="token-label">RPC Endpoint</div>
+                    <div class="balance-amount">https://rpc.test.btcs.network</div>
+                    <div class="balance-usd">Chain ID: 1116 (0x45C)</div>
+                </div>
+
+                <div class="token-section">
+                    <div class="token-label">Network Info</div>
+                    <div style="color: rgba(255, 255, 255, 0.8); font-size: 14px;">
+                        <p>• Network: Core Testnet</p>
+                        <p>• Currency: tCORE</p>
+                        <p>• Explorer: scan.test.btcs.network</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Apps Section -->
+        <div id="apps-section" class="apps-section section">
+            <div class="apps-header">
+                <h1 class="apps-title">Apps</h1>
+                <p class="apps-subtitle">Explore Core Testnet applications</p>
+            </div>
+            <div class="apps-grid">
+                <div class="app-card wallets" onclick="openApp('wallets')">
+                    <div class="app-icon">💳</div>
+                    <h3 class="app-title">Wallets</h3>
+                    <p class="app-description">Manage your digital assets and tokens</p>
+                </div>
+                <div class="app-card swap" onclick="openApp('swap')">
+                    <div class="app-icon">🔄</div>
+                    <h3 class="app-title">Swap</h3>
+                    <p class="app-description">Trade tokens instantly with best rates</p>
+                </div>
+                <div class="app-card pools" onclick="openApp('pools')">
+                    <div class="app-icon">📊</div>
+                    <h3 class="app-title">Pools</h3>
+                    <p class="app-description">Explore and analyze liquidity pools</p>
+                </div>
+                <div class="app-card positions" onclick="openApp('positions')">
+                    <div class="app-icon">⏰</div>
+                    <h3 class="app-title">Positions</h3>
+                    <p class="app-description">Manage your liquidity positions</p>
+                </div>
+                <div class="app-card ideas" onclick="openApp('ideas')">
+                    <div class="app-icon">💡</div>
+                    <h3 class="app-title">Ideas</h3>
+                    <p class="app-description">Explore innovative concepts and projects</p>
+                </div>
+                <div class="app-card ledger" onclick="openApp('ledger')">
+                    <div class="app-icon">📋</div>
+                    <h3 class="app-title">Ledger</h3>
+                    <p class="app-description">View real-time activity</p>
+                </div>
+                <div class="app-card tokens" onclick="openApp('tokens')">
+                    <div class="app-icon">🪙</div>
+                    <h3 class="app-title">Tokens</h3>
+                    <p class="app-description">Explore all tokens on Core Testnet</p>
+                </div>
+            </div>
+            <div class="bottom-section">
+                <div class="bottom-card" onclick="openApp('forums')">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="background: linear-gradient(135deg, #ff6b35, #f7931e); padding: 12px; border-radius: 12px;">
+                            <span style="font-size: 20px;">💬</span>
+                        </div>
+                        <div>
+                            <h3>Core Forums</h3>
+                            <p style="color: rgba(255, 255, 255, 0.7); margin-top: 5px;">Discuss Core Testnet and other topics</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-card" onclick="openApp('twitter')">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="background: linear-gradient(135deg, #1da1f2, #0d8bd9); padding: 12px; border-radius: 12px;">
+                            <span style="font-size: 20px;">𝕏</span>
+                        </div>
+                        <div>
+                            <h3>Follow Us</h3>
+                            <p style="color: rgba(255, 255, 255, 0.7); margin-top: 5px;">Stay up to date with announcements on X</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-card" onclick="openApp('start')">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="background: linear-gradient(135deg, #ff6b35, #e74c3c); padding: 12px; border-radius: 12px;">
+                            <span style="font-size: 20px;">🚀</span>
+                        </div>
+                        <div>
+                            <h3>Core Start</h3>
+                            <p style="color: rgba(255, 255, 255, 0.7); margin-top: 5px;">Innovative launchpad platform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <div class="nav-container">
+            <div class="nav-item active" data-section="home" onclick="navigateTo('home')">
+                <div class="nav-icon">🏠</div>
+                <div class="nav-label">Home</div>
+            </div>
+            <div class="nav-item" data-section="wallet" onclick="navigateTo('wallet')">
+                <div class="nav-icon">💳</div>
+                <div class="nav-label">Wallet</div>
+            </div>
+            <div class="nav-item" data-section="swap" onclick="navigateTo('swap')">
+                <div class="nav-icon">↕️</div>
+                <div class="nav-label">Swap</div>
+            </div>
+            <div class="nav-item" data-section="apps" onclick="navigateTo('apps')">
+                <div class="nav-icon">📱</div>
+                <div class="nav-label">Apps</div>
+            </div>
+            <div class="nav-item" data-section="rpc" onclick="navigateTo('rpc')">
+                <div class="nav-icon">🌐</div>
+                <div class="nav-label">RPC</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Web3.js and script -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.7.3/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+    
+    <script>
+        // Direct navigation function - no sliding animations
+        function navigateTo(section) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(sec => sec.classList.remove('active'));
+            sections.forEach(sec => sec.style.display = 'none');
+            
+            // Show selected section
+            const targetSection = document.getElementById(`${section}-section`);
+            if (targetSection) {
+                targetSection.style.display = 'block';
+                targetSection.classList.add('active');
+            }
+
+            // Update navigation active state
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.section === section) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Initialize with home section on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            navigateTo('home');
+        });
+
+        // Add swap functionality
+        function performSwap() {
+            alert('Swap executed successfully! (This is a mock transaction)');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAI CHAIN - DeFi-Powered Financial Infrastructure</title>
+    <link rel="stylesheet" href="index1.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <button class="back-button" onclick="goBack()">← Back</button>
+            <div class="logo">
+                <div class="logo-icon">⚡</div>
+                <span>KAI CHAIN</span>
+            </div>
+            <div class="header-actions">
+                <button class="icon-btn" onclick="toggleTheme()">🌙</button>
+                <button class="icon-btn" onclick="window.open('INDEX.html', '_blank')" title="Open Core Testnet Interface">⚡</button>
+                <button class="icon-btn" onclick="printPage()">🖨️</button>
+            </div>
+        </div>
+
+        <!-- Home Section -->
+        <div id="home-section" class="section active">
+            <div class="section-card fade-in">
+                <h3><i>🏠</i> Welcome to KAI Chain</h3>
+                <p>KAI Chain is revolutionizing African finance with DeFi-powered tools. Access high-yield investments, stablecoins . We are working towards a goal of 6 months which entails </p>
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h2>Total Value Locked</h2>
+                        <p>$10M</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h2>Active Users</h2>
+                        <p>50,000+</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h2>Average APY</h2>
+                        <p>20-30%</p>
+                    </div>
+                    <div class="dashboard-card">
+                        <h2>Tokens Available</h2>
+                        <p>5+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wallet Section -->
+        <div id="wallet-section" class="section">
+            <div class="section-card fade-in">
+                <h3><i>💳</i> Your Wallet</h3>
+                <div class="wallet-info">
+                    <p id="wallet-status">Wallet not connected. Connect to view balances.</p>
+                    <ul class="balance-list" id="balance-list" style="display: none;">
+                        <li class="balance-item"><span>YToken</span><span>2,100,000,000</span></li>
+                        <li class="balance-item"><span>YBOB</span><span>infinite</span></li>
+                        <li class="balance-item"><span>YGOLDBOND</span><span>8,400,000,000</span></li>
+                        <li class="balance-item"><span>KAI CENTS</span><span>1,000,000,000</span></li>
+                        <li class="balance-item"><span>GAMI</span><span>10,000,000,000</span></li>
+                    </ul>
+                    <button class="connect-button" onclick="connectWallet()">Connect Wallet</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Swap Section -->
+        <div id="swap-section" class="section">
+            <div class="section-card fade-in">
+                <h3><i>↕️</i> Token Swap</h3>
+                <div class="swap-form">
+                    <select class="swap-input">
+                        <option>YToken</option>
+                        <option>YBOB</option>
+                        <option>YGOLDBOND</option>
+                        <option>KAI CENTS</option>
+                        <option>GAMI</option>
+                    </select>
+                    <input type="number" class="swap-input" placeholder="Amount to swap">
+                    <select class="swap-input">
+                        <option>YBOB</option>
+                        <option>YToken</option>
+                        <option>YGOLDBOND</option>
+                        <option>KAI CENTS</option>
+                        <option>GAMI</option>
+                    </select>
+                    <button class="swap-button" onclick="performSwap()">Swap</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Apps Section -->
+        <div id="apps-section" class="section">
+            <div class="section-card fade-in">
+                <h3><i>📱</i> KAI Apps</h3>
+                <div class="apps-grid">
+                    <div class="app-card" onclick="openApp('yTokenVault')">
+                        <div class="app-icon">💰</div>
+                        <h4>YToken Vault</h4>
+                        <p>Multi-strategy DeFi vault with 15-28% APY</p>
+                    </div>
+                    <div class="app-card" onclick="openApp('yGoldBond')">
+                        <div class="app-icon">🏆</div>
+                        <h4>YGOLD BOND</h4>
+                        <p>Yield-bearing bond with 18-45% APY</p>
+                    </div>
+                    <div class="app-card" onclick="openApp('pensionPools')">
+                        <div class="app-icon">🕰️</div>
+                        <h4>Pension Pools</h4>
+                        <p>Long-term staking with 20-50% APY</p>
+                    </div>
+                    <div class="app-card" onclick="openApp('insurancePools')">
+                        <div class="app-icon">🛡️</div>
+                        <h4>Insurance Pools</h4>
+                        <p>Decentralized insurance with 18-30% APY</p>
+                    </div>
+                    <div class="app-card" onclick="openApp('mmf')">
+                        <div class="app-icon">📊</div>
+                        <h4>KAI MMF</h4>
+                        <p>Money market fund with 16-48% APY</p>
+                    </div>
+                    <div class="app-card" onclick="openApp('stablecoin')">
+                        <div class="app-icon">🔒</div>
+                        <h4>YBOB Stablecoin</h4>
+                        <p>Algorithmic stablecoin with 6-10% APY</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- White Paper Section -->
+        <div id="whitepaper-section" class="section">
+            <!-- White Paper Content -->
+            <div class="whitepaper-container fade-in">
+                <div class="whitepaper-header">
+                    <h1>KAI WHITE PAPER</h1>
+                    <h2>DeFi-Powered Financial Infrastructure for Africa's Economic Revolution</h2>
+                </div>
+
+                <!-- Abstract -->
+                <div class="section-card fade-in">
+                    <h3><i>🔹</i> Abstract</h3>
+                    <p>KAI Chain is a next-generation decentralized financial protocol designed to democratize access to Bitcoin (BTC) and CORE-based investments across Africa, beginning with Kenya. At its core, KAI seeks to establish a new financial standard—one immune to local currency inflation and economic instability—by anchoring wealth creation to globally scarce, deflationary assets.</p>
+                    <p>The protocol introduces a structured suite of products, including tokenized ETFs, programmable trust funds, stablecoins, and DeFi-powered pensions, all engineered to foster passive income, promote long-term financial security, and eliminate poverty through inclusive capital markets.</p>
+                </div>
+
+                <!-- Problems Section -->
+                <div class="section-card fade-in">
+                    <h3><i>🔹</i> Problems KAI Chain Solves</h3>
+                    <div class="problem-list">
+                        <div class="problem-card">
+                            <h4>Chronic Inflation & Currency Instability</h4>
+                            <p>African fiat currencies regularly lose value due to inflation (often exceeding 10–20% annually), eroding savings and limiting financial planning.</p>
+                        </div>
+                        <div class="problem-card">
+                            <h4>Lack of Access to Global Assets</h4>
+                            <p>Most Africans are excluded from secure, appreciating assets like BTC and DeFi protocols. KAI enables exposure in a structured, risk-managed way.</p>
+                        </div>
+                        <div class="problem-card">
+                            <h4>Underdeveloped Capital Markets</h4>
+                            <p>Local markets are inaccessible, illiquid, and poorly regulated. KAI introduces programmable ETFs, bonds, and lending protocols.</p>
+                        </div>
+                        <div class="problem-card">
+                            <h4>Low-Yield Savings Infrastructure</h4>
+                            <p>Savings accounts offer negligible interest rates (2–4%), discouraging long-term wealth building. KAI enables 10–25% APY through DeFi.</p>
+                        </div>
+                        <div class="problem-card">
+                            <h4>Inequity in Financial Intermediation</h4>
+                            <p>Traditional finance is extractive. Middlemen like banks and insurers take the largest share of returns.</p>
+                        </div>
+                        <div class="problem-card">
+                            <h4>Absence of Inclusive Financial Tools</h4>
+                            <p>Pension coverage, affordable insurance, and SME lending are either non-existent or deeply flawed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Investment Products -->
+                <div class="section-card fade-in">
+                    <h3><i>✅</i> KAI-DeFi Investment Products</h3>
+                    
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <h4>YToken Multi-Strategy DeFi Vault</h4>
+                            <p>BTC + CORE ETF with automated rebalancing for inflation resistance.</p>
+                            <p><strong>Features:</strong> Flash loan arbitrage, automated compounding, impermanent loss protection</p>
+                            <p><strong>Expected APY:</strong> 15–28% + 10–25% from DeFi strategies</p>
+                        </div>
+                        <div class="product-card">
+                            <h4>YGOLD BOND</h4>
+                            <p>Tokenized, yield-bearing bond product with diversified inflation-resistant assets.</p>
+                            <p><strong>Composition:</strong> Infrastructure bonds, BTC/CORE, gold, USDC</p>
+                            <p><strong>Expected APY:</strong> 18–45%</p>
+                        </div>
+                        <div class="product-card">
+                            <h4>KAI Pension DeFi Pools</h4>
+                            <p>Long-term staking (2–100 years) with exponential yield bonuses.</p>
+                            <p><strong>Features:</strong> Penalty redistribution, on-chain trust fund inheritance</p>
+                            <p><strong>Expected APY:</strong> 20–50%</p>
+                        </div>
+                        <div class="product-card">
+                            <h4>KAI Premium Insurance Pools</h4>
+                            <p>Peer-funded risk pools managed by smart contracts.</p>
+                            <p><strong>Features:</strong> Instant claims with zk and AI verification</p>
+                            <p><strong>Expected APY:</strong> 18–30%</p>
+                        </div>
+                        <div class="product-card">
+                            <h4>KAI MMF</h4>
+                            <p>Algorithmic DeFi vault offering stable savings and high-yield investments.</p>
+                            <p><strong>Savings APY:</strong> 16–20%</p>
+                            <p><strong>Investment APY:</strong> 18–48%</p>
+                        </div>
+                        <div class="product-card">
+                            <h4>YBOB Algorithmic Stablecoin</h4>
+                            <p>Stable savings + inflation-beating passive yield.</p>
+                            <p><strong>Expected APY:</strong> 6–10%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Token Architecture -->
+                <div class="section-card fade-in">
+                    <h3><i>🔹</i> Enhanced Token Architecture</h3>
+                    
+                    <table class="token-table">
+                        <thead>
+                            <tr>
+                                <th>Token</th>
+                                <th>Type</th>
+                                <th>Supply</th>
+                                <th>DeFi Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>YToken</td>
+                                <td>Multi-Strategy Vault</td>
+                                <td>2.1 Billion</td>
+                                <td>Automated yield farming, rebalancing</td>
+                            </tr>
+                            <tr>
+                                <td>YBOB</td>
+                                <td>Algorithmic Stablecoin</td>
+                                <td>Dynamic</td>
+                                <td>Stability + yield on backing assets</td>
+                            </tr>
+                            <tr>
+                                <td>YGOLDBOND</td>
+                                <td>Multi-Strategy Vault</td>
+                                <td>8.4 Billion</td>
+                                <td>Automated yield farming + project yield sharing</td>
+                            </tr>
+                            <tr>
+                                <td>KAI CENTS</td>
+                                <td>Gas + Prediction Utility</td>
+                                <td>1 Billion</td>
+                                <td>Fee discounts, prediction utility</td>
+                            </tr>
+                            <tr>
+                                <td>GAMI</td>
+                                <td>Social DeFi Mining</td>
+                                <td>10 Billion</td>
+                                <td>Engagement rewards + creator pool yields</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4 style="margin-top: 30px;">Advanced DeFi Features</h4>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>Cross-Token Yield Strategies</li>
+                        <li>Automated Harvesting</li>
+                        <li>Flash Loan Integration</li>
+                        <li>Governance Yield</li>
+                        <li>Liquidity Mining Bonuses</li>
+                    </ul>
+                </div>
+
+                <!-- Competitive Advantages -->
+                <div class="section-card fade-in">
+                    <h3><i>🔹</i> Competitive DeFi Advantages</h3>
+                    
+                    <h4 style="margin-bottom: 20px;">Traditional Banking vs. KAI DeFi</h4>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Traditional Banking</th>
+                                <th>KAI DeFi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Savings Account APY</td>
+                                <td>2–5%</td>
+                                <td>12–48%</td>
+                            </tr>
+                            <tr>
+                                <td>Loan Processing</td>
+                                <td>2–8 weeks</td>
+                                <td>Instant</td>
+                            </tr>
+                            <tr>
+                                <td>Collateral Requirements</td>
+                                <td>150–200%</td>
+                                <td>110–130%</td>
+                            </tr>
+                            <tr>
+                                <td>Operating Hours</td>
+                                <td>Business hours only</td>
+                                <td>24/7/365</td>
+                            </tr>
+                            <tr>
+                                <td>Geographic Restrictions</td>
+                                <td>Local branches only</td>
+                                <td>Global access</td>
+                            </tr>
+                            <tr>
+                                <td>Intermediary Fees</td>
+                                <td>2–5% of transactions</td>
+                                <td>0.1–0.5%</td>
+                            </tr>
+                            <tr>
+                                <td>Transparency</td>
+                                <td>Opaque processes</td>
+                                <td>Full blockchain transparency</td>
+                            </tr>
+                            <tr>
+                                <td>Asset Custody</td>
+                                <td>Bank controls assets</td>
+                                <td>User maintains custody</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Vision Section -->
+                <div class="section-card fade-in">
+                    <h3><i>🔹</i> DeFi-Powered Vision</h3>
+                    <p>KAI envisions Africa as the global leader in DeFi adoption, where:</p>
+                    
+                    <div style="margin-top: 20px;">
+                        <div class="vision-card">
+                            <div class="vision-icon">🌍</div>
+                            <div>
+                                <h4>Every African</h4>
+                                <p>Earns 10–20% annual yields on savings through automated DeFi strategies.</p>
+                            </div>
+                        </div>
+                        <div class="vision-card">
+                            <div class="vision-icon">🏢</div>
+                            <div>
+                                <h4>SMEs</h4>
+                                <p>Access instant liquidity by tokenizing assets and participating in DeFi lending.</p>
+                            </div>
+                        </div>
+                        <div class="vision-card">
+                            <div class="vision-icon">🎨</div>
+                            <div>
+                                <h4>Social Creators</h4>
+                                <p>Earn sustainable income through DeFi-powered engagement rewards.</p>
+                            </div>
+                        </div>
+                        <div class="vision-card">
+                            <div class="vision-icon">👥</div>
+                            <div>
+                                <h4>Communities</h4>
+                                <p>Collectively invest in infrastructure through DeFi governance tokens.</p>
+                            </div>
+                        </div>
+                        <div class="vision-card">
+                            <div class="vision-icon">📱</div>
+                            <div>
+                                <h4>Financial Inclusion</h4>
+                                <p>Reaches 100% through mobile-first DeFi applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4 style="margin-top: 30px;">Economic Impact Projections</h4>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>10x Higher Yields than traditional savings</li>
+                        <li>Instant Access to financial services</li>
+                        <li>50% Cost Reduction by eliminating intermediaries</li>
+                        <li>24/7 Operations without human intervention</li>
+                        <li>Global Liquidity access</li>
+                    </ul>
+                </div>
+
+                <!-- Conclusion -->
+                <div class="conclusion fade-in">
+                    <h3>🔹 Conclusion</h3>
+                    <p>KAI represents the complete transformation of African finance through DeFi innovation. By replacing traditional banking products with superior DeFi alternatives, we deliver higher returns, instant access, full transparency, global opportunities, and user ownership of assets.</p>
+                    <p>KAI doesn't just offer better financial products—we provide access to the most advanced DeFi protocols on the planet, specifically optimized for African users.</p>
+                    <button class="cta-button" onclick="joinRevolution()">Join the DeFi Revolution</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <div class="nav-container">
+            <div class="nav-item active" data-section="home" onclick="navigateTo('home')">
+                <div class="nav-icon">🏠</div>
+                <div class="nav-label">Home</div>
+            </div>
+            <div class="nav-item" data-section="wallet" onclick="navigateTo('wallet')">
+                <div class="nav-icon">💳</div>
+                <div class="nav-label">Wallet</div>
+            </div>
+            <div class="nav-item" data-section="swap" onclick="navigateTo('swap')">
+                <div class="nav-icon">↕️</div>
+                <div class="nav-label">Swap</div>
+            </div>
+            <div class="nav-item" data-section="apps" onclick="navigateTo('apps')">
+                <div class="nav-icon">📱</div>
+                <div class="nav-label">Apps</div>
+            </div>
+            <div class="nav-item" data-section="whitepaper" onclick="navigateTo('whitepaper')">
+                <div class="nav-icon">📄</div>
+                <div class="nav-label">White Paper</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
